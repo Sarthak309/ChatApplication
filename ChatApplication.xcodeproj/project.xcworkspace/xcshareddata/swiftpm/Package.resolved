@@ -1,0 +1,24 @@
+{
+  "originHash" : "c990bbf14918aaffd3da1b4225cb28e9ddbc34385a959ee25c9ad6fce9cea502",
+  "pins" : [
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "33696a71dd4d71f1b0f781ade11a48ba5549581a",
+        "version" : "8.0.3"
+      }
+    },
+    {
+      "identity" : "logger",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Sarthak309/Logger",
+      "state" : {
+        "revision" : "07bd1866547fce81e735679a1d10d31548856946",
+        "version" : "0.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

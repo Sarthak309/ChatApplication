@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		14372BDE2CABDBEC00A7DE46 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 14372BDD2CABDBEC00A7DE46 /* Kingfisher */; };
+		14372BE12CABDC0300A7DE46 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 14372BE02CABDC0300A7DE46 /* Logger */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		14E8DE6F2CAA64F1008F4DE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14372BE12CABDC0300A7DE46 /* Logger in Frameworks */,
+				14372BDE2CABDBEC00A7DE46 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = ChatApplication;
 			packageProductDependencies = (
+				14372BDD2CABDBEC00A7DE46 /* Kingfisher */,
+				14372BE02CABDC0300A7DE46 /* Logger */,
 			);
 			productName = ChatApplication;
 			productReference = 14E8DE5D2CAA64EF008F4DE3 /* ChatApplication.app */;
@@ -195,6 +204,10 @@
 			);
 			mainGroup = 14E8DE542CAA64EF008F4DE3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				14372BDC2CABDBEC00A7DE46 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				14372BDF2CABDC0300A7DE46 /* XCRemoteSwiftPackageReference "Logger" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 14E8DE5E2CAA64EF008F4DE3 /* Products */;
 			projectDirPath = "";
@@ -591,6 +604,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14372BDC2CABDBEC00A7DE46 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
+		14372BDF2CABDC0300A7DE46 /* XCRemoteSwiftPackageReference "Logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Sarthak309/Logger";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14372BDD2CABDBEC00A7DE46 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14372BDC2CABDBEC00A7DE46 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		14372BE02CABDC0300A7DE46 /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14372BDF2CABDC0300A7DE46 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = Logger;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14E8DE552CAA64EF008F4DE3 /* Project object */;
 }
