@@ -11,9 +11,8 @@ struct ChatDetailView: View {
     
     @Environment(\.dismiss) var dismiss
     var chatConversation: [ChatConversationResponse] = chatConversationData
-
-    
     var chatResponse: ChatResponse
+    
     var body: some View {
         NavigationStack{
             ZStack(alignment: .bottom){
@@ -37,7 +36,7 @@ struct ChatDetailView: View {
                     }
                 }
                 .padding(.bottom, 80)
-                
+                .defaultScrollAnchor(.bottom)
                 FooterFloatingView()
             }
             .navigationBarBackButtonHidden(true)

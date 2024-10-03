@@ -11,6 +11,8 @@ import SwiftUI
 struct FooterFloatingView: View {
     
     @State private var sendMessage:String = ""
+    @State private var value: CGFloat = 0
+    
     var body: some View {
         VStack{
             HStack (spacing: 20) {
@@ -27,6 +29,7 @@ struct FooterFloatingView: View {
                 HStack(spacing: 0) {
                     TextField("", text: $sendMessage)
                         .padding(.all,10)
+                        .foregroundStyle(.black)
                     Spacer()
                     HStackLayout(spacing: 20){
                         Button{
@@ -76,5 +79,19 @@ struct FooterFloatingView: View {
         .frame(maxWidth: .infinity)
         .frame(height: 85)
         .background(.white)
+        .offset(y: -self.value)
+        .animation(.easeInOut(duration: 0.1), value: self.value)
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { noti in
+                let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                let height = value.height
+                
+                self.value = height
+                
+            }
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main) { _  in
+                self.value = 0
+            }
+        }
     }
 }

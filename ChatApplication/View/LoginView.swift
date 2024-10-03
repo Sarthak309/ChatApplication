@@ -9,20 +9,18 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @FocusState private var isFocusedOnMobileNumber: Bool
     
     var body: some View {
         NavigationStack{
             VStack(spacing: 20) {
-                TextField("Email", text: $viewModel.email)
+                TextField("Mobile number", text: $viewModel.mobileNumber)
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(5)
-                    .keyboardType(.emailAddress)
+                    .keyboardType(.phonePad)
+                    .focused($isFocusedOnMobileNumber)
                 
-                SecureField("Password", text: $viewModel.password)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(5)
                 if viewModel.isLoading{
                     ProgressView()
                 }else {
@@ -50,6 +48,15 @@ struct LoginView: View {
             .padding()
             .navigationTitle("Login")
             .navigationBarBackButtonHidden()
+            .toolbar {
+                if isFocusedOnMobileNumber{
+                    Button{
+                        isFocusedOnMobileNumber = false
+                    }label: {
+                        Text("Done")
+                    }
+                }
+            }
         }
     }
 }

@@ -13,10 +13,15 @@ class UserPreferences {
     
     private enum Keys {
         static let jwt = "jwt"
-        static let userId = "userId"
-        static let userRole = "userRole"
+        static let userFirstName = "userFirstName"
+        static let userLastName = "userLastName"
+        static let userEmail = "userEmail"
+        static let mobileNumber = "mobileNumber"
+        static let profileImageUrl = "profileImageUrl"
+        
     }
     
+    // JWT Token
     var jwt: String? {
         get {
             return defaults.string(forKey: Keys.jwt)
@@ -26,22 +31,64 @@ class UserPreferences {
         }
     }
     
-    var userId: Int? {
+    // User First Name
+    var userFirstName: String? {
         get {
-            return defaults.integer(forKey: Keys.userId) == 0 ? nil : defaults.integer(forKey: Keys.userId)
+            return defaults.string(forKey: Keys.userFirstName)
         }
         set {
-            defaults.setValue(newValue, forKey: Keys.userId)
+            defaults.setValue(newValue, forKey: Keys.userFirstName)
         }
     }
     
-//    var userRole: UserRole? {
-//        get {
-//            guard let rawValue = defaults.string(forKey: Keys.userRole) else { return nil }
-//            return UserRole(rawValue: rawValue)
-//        }
-//        set {
-//            defaults.setValue(newValue?.rawValue, forKey: Keys.userRole)
-//        }
-//    }
+    // User Last Name
+    var userLastName: String? {
+        get {
+            return defaults.string(forKey: Keys.userLastName)
+        }
+        set {
+            defaults.setValue(newValue, forKey: Keys.userLastName)
+        }
+    }
+    
+    // User Email
+    var userEmail: String? {
+        get {
+            return defaults.string(forKey: Keys.userEmail)
+        }
+        set {
+            defaults.setValue(newValue, forKey: Keys.userEmail)
+        }
+    }
+    
+    // Mobile Number
+    var mobileNumber: String? {
+        get {
+            return defaults.string(forKey: Keys.mobileNumber)
+        }
+        set {
+            defaults.setValue(newValue, forKey: Keys.mobileNumber)
+        }
+    }
+    
+    // Profile Image URL
+    var profileImageUrl: String? {
+        get {
+            return defaults.string(forKey: Keys.profileImageUrl)
+        }
+        set {
+            defaults.setValue(newValue, forKey: Keys.profileImageUrl)
+        }
+    }
+    
+    // Clear all stored preferences
+    func clearUserData() {
+        defaults.removeObject(forKey: Keys.jwt)
+        defaults.removeObject(forKey: Keys.userFirstName)
+        defaults.removeObject(forKey: Keys.userLastName)
+        defaults.removeObject(forKey: Keys.userEmail)
+        defaults.removeObject(forKey: Keys.mobileNumber)
+        defaults.removeObject(forKey: Keys.profileImageUrl)
+    }
+    
 }

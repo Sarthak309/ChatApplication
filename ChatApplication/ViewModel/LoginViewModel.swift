@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class LoginViewModel: ObservableObject {
-    @Published var email = ""
-    @Published var password = ""
+
+    @Published var mobileNumber = ""
     @Published var isLoading = false
     @Published var alertMessage: String?
     @Published var showErrorAlert = false
@@ -19,58 +19,52 @@ class LoginViewModel: ObservableObject {
     private let userPreferences = UserPreferences()
     
     func login() {
-        guard !email.isEmpty, !password.isEmpty else{
+        guard !mobileNumber.isEmpty else{
             self.alertMessage = "Please fill in all the Fieds"
+            self.showErrorAlert = true
+            self.isLoggedInSuccessfully = false
+            return
+        }
+        guard mobileNumber.count == 10 else{
+            self.alertMessage = "The number should be of 10 digits"
             self.showErrorAlert = true
             self.isLoggedInSuccessfully = false
             return
         }
         
         isLoading = true
-        let _ : [String: String] = [
-            "email": email,
-            "password": password
-        ]
+        let userRequest = UserRequest(dialCode: "+91",
+                                      mobileNumber: Int(mobileNumber) ?? 8077524294,
+                                      orderId: "Otp_C03193D6350149669EF37D5FB1B3F7E0",
+                                      otp: 234768)
         
-        email = ""
-        password = ""
+        mobileNumber = ""
         
-        DispatchQueue.main.async{
-            self.isLoggedInSuccessfully = true
-            self.isLoading = false
-            self.alertMessage = nil
+        APIService.shared.login(userRequest) { result in
+            switch result {
+            case .success(let userData):
+                
+                self.userPreferences.jwt = userData.authToken
+                self.userPreferences.userFirstName = userData.firstName
+                self.userPreferences.userLastName = userData.lastName
+                self.userPreferences.userEmail = userData.email
+                self.userPreferences.mobileNumber = "\(userData.mobileNumber)"
+                self.userPreferences.profileImageUrl = userData.profileImage?.url
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+                    self.isLoggedInSuccessfully = true
+                    self.isLoading = false
+                    self.alertMessage = nil
+                }
+            case .failure(let failure):
+                DispatchQueue.main.async{
+                    self.alertMessage = failure.desc
+                    self.isLoading = false
+                    self.showErrorAlert = true
+                    self.isLoggedInSuccessfully = false
+                }
+            }
         }
-//        APIService.shared.login(parameters: parameters) { [weak self] result in
-//            DispatchQueue.main.async {
-//                self?.isLoading = false
-//                switch result{
-//                case .success(let response):
-//                    self?.showErrorAlert = false
-//                    self?.alertMessage = "Logged in Successfully"
-//                    self?.userPreferences.jwt = response.jwt
-//                    self?.userPreferences.userId = response.userId
-//                    self?.userPreferences.userRole = response.decodedUserRole()
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-//                        self?.isLoggedInSuccessfully = true
-//                        self?.alertMessage = nil
-//                    }
-//                case .failure(let error):
-//                    print(error)
-//                    if let errorCode = error.responseCode{
-//                        if errorCode == 403{
-//                            self?.showErrorAlert = true
-//                            self?.alertMessage = "Invalid credentials"
-//                            self?.isLoggedInSuccessfully = false
-//                            return
-//                        }
-//                    }
-//                    print(error.localizedDescription)
-//                    self?.showErrorAlert = true
-//                    self?.alertMessage = error.localizedDescription
-//                }
-//            }
-//        }
+        
     }
-    
-    
 }

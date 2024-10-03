@@ -32,6 +32,7 @@ extension Color {
     
     // Textfield
     static let textFieldBackgroundColor = Color (hex: "EFEFEF")
+    static let textFieldBackgroundColorDark = Color(hex: "#373739")
     // Setting
     static let avatarColor = Color (hex: "#3379F5")
     static let starredMessageColor = Color(hex: "#FFC700" )
@@ -47,6 +48,8 @@ extension Color {
     
     // Chat Component
     static let todayChatBackground = Color (hex: "#F5F3EF")
+    static let todayChatBackgroundDark = Color(hex: "#373739")
     static let settingChatBackground = Color (hex: "#FFF4BB")
     static let meChatBackground = Color (hex: "#E1FFD3" )
+    static let meChatBackgroundDark = Color(hex: "#035D37")
 }
