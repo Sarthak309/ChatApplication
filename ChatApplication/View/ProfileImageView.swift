@@ -23,5 +23,5 @@ struct ProfileImageView: View {
 }
 
 #Preview {
-    ProfileImageView(profileURL: currentUserData.profileUrl, size: 390)
+//    ProfileImageView(profileURL: currentUserData.profileUrl, size: 390)
 }

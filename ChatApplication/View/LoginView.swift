@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @FocusState private var isFocusedOnMobileNumber: Bool
+    @EnvironmentObject var socketManager: SocketIOManager
     
     var body: some View {
         NavigationStack{
@@ -56,6 +57,9 @@ struct LoginView: View {
                         Text("Done")
                     }
                 }
+            }
+            .onAppear {
+                viewModel.socketManager = self.socketManager
             }
         }
     }

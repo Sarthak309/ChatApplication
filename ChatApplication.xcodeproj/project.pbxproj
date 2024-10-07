@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14372BDE2CABDBEC00A7DE46 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 14372BDD2CABDBEC00A7DE46 /* Kingfisher */; };
 		14372BE12CABDC0300A7DE46 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 14372BE02CABDC0300A7DE46 /* Logger */; };
+		14AFFDA22CAFB00B009EC589 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 14AFFDA12CAFB00B009EC589 /* SocketIO */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 			files = (
 				14372BE12CABDC0300A7DE46 /* Logger in Frameworks */,
 				14372BDE2CABDBEC00A7DE46 /* Kingfisher in Frameworks */,
+				14AFFDA22CAFB00B009EC589 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +136,7 @@
 			packageProductDependencies = (
 				14372BDD2CABDBEC00A7DE46 /* Kingfisher */,
 				14372BE02CABDC0300A7DE46 /* Logger */,
+				14AFFDA12CAFB00B009EC589 /* SocketIO */,
 			);
 			productName = ChatApplication;
 			productReference = 14E8DE5D2CAA64EF008F4DE3 /* ChatApplication.app */;
@@ -220,6 +223,7 @@
 			packageReferences = (
 				14372BDC2CABDBEC00A7DE46 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				14372BDF2CABDC0300A7DE46 /* XCRemoteSwiftPackageReference "Logger" */,
+				14AFFDA02CAFB00B009EC589 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 14E8DE5E2CAA64EF008F4DE3 /* Products */;
@@ -432,8 +436,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -442,10 +445,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sarthak.ChatApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
@@ -473,8 +477,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -483,10 +486,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sarthak.ChatApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
@@ -639,6 +643,14 @@
 				minimumVersion = 0.0.1;
 			};
 		};
+		14AFFDA02CAFB00B009EC589 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -651,6 +663,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 14372BDF2CABDC0300A7DE46 /* XCRemoteSwiftPackageReference "Logger" */;
 			productName = Logger;
+		};
+		14AFFDA12CAFB00B009EC589 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14AFFDA02CAFB00B009EC589 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

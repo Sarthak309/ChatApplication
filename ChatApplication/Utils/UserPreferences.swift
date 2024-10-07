@@ -16,6 +16,7 @@ class UserPreferences {
         static let userFirstName = "userFirstName"
         static let userLastName = "userLastName"
         static let userEmail = "userEmail"
+        static let userId = "userId"
         static let mobileNumber = "mobileNumber"
         static let profileImageUrl = "profileImageUrl"
         
@@ -38,6 +39,17 @@ class UserPreferences {
         }
         set {
             defaults.setValue(newValue, forKey: Keys.userFirstName)
+        }
+    }
+    
+    //User Id
+    
+    var userId: String? {
+        get{
+            return defaults.string(forKey: Keys.userId)
+        }
+        set{
+            defaults.setValue(newValue, forKey: Keys.userId)
         }
     }
     

@@ -91,7 +91,7 @@ struct ChatDetailView: View {
 }
 
 #Preview {
-    ChatDetailView(chatResponse: chatData[0])
+//    ChatDetailView(chatResponse: chatData[0])
 }
 
 

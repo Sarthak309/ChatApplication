@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ChatApplicationApp: App {
+    
+    @StateObject var socketManager = SocketIOManager()
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environmentObject(socketManager)
         }
     }
 }
